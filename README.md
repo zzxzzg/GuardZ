@@ -1,0 +1,2 @@
+Processor项目
+使用annotation processor 自动生成工厂模式代码的demo
