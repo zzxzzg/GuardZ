@@ -1,2 +1,5 @@
 Processor项目
 使用annotation processor 自动生成工厂模式代码的demo
+
+ClearArch项目
+使用 clean architecture 架构的一个demo程序
