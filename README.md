@@ -3,3 +3,6 @@ Processor项目
 
 ClearArch项目
 使用 clean architecture 架构的一个demo程序
+
+SQLDemo
+使用 sqldelight 和 sqlbrite的一个简单demo
