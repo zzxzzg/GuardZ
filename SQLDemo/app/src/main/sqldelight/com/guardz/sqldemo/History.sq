@@ -1,0 +1,38 @@
+CREATE TABLE history (
+    _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    art_id INTEGER NOT NULL UNIQUE,
+    title TEXT NOT NULL,
+    created_time INTEGER NOT NULL DEFAULT (datetime('now','localtime'))
+);
+
+insert_history:
+INSERT
+INTO history(art_id,title)
+VALUES (?,?);
+
+exist_by_id:
+SELECT count(*)
+FROM history
+WHERE art_id = ?;
+
+update_by_id:
+UPDATE history
+SET title = ?2 , created_time = datetime('now','localtime')
+WHERE art_id = ?1 ;
+
+select_by_page:
+SELECT *
+FROM history
+ORDER BY created_time DESC
+LIMIT ?1 OFFSET (?2 - 1)* ?1 ;
+
+total_count:
+SELECT count(*)
+FROM history;
+
+-- 这条语句没有实际意义，效果是是返回最后一条数据，但是在此处用来当做当做一个mapper的例子
+select_total:
+SELECT *,count(*)
+FROM history
+ORDER BY created_time DESC;
+

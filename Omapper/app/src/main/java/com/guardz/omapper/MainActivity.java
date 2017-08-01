@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.guardz.mylibrary.ProguardTestClass;
 import com.guardz.omapper.necessary.TestBean1;
 import com.guardz.omapper.necessary.TestBean2;
 import com.guardz.omapper.necessary.TestBean3;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             field.setAccessible(true);
             Log.d("sss",field.getType().getCanonicalName()+"   "+field.getDeclaringClass().getCanonicalName()+"  "+field.getGenericType().toString());
         }
+
+        ProguardTestClass testClass = new ProguardTestClass();
+        Log.d("sss",testClass.test1);
 
         method1();
         //method2();
