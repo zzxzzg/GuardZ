@@ -6,3 +6,6 @@ ClearArch项目
 
 SQLDemo
 使用 sqldelight 和 sqlbrite的一个简单demo
+
+ImageZoom
+在图片上添加overlay叠层，可以拖动overlay

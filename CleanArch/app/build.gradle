@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "27.0.2"
     defaultConfig {
         applicationId "com.guardz.cleanarch"
         minSdkVersion 15
@@ -31,11 +31,13 @@ android {
 
     // If you need to add more flavors, consider using flavor dimensions.
     productFlavors {
+        flavorDimensions "normal"
         mock {
             applicationIdSuffix = ".mock"
+            dimension "normal"
         }
         prod {
-
+            dimension "normal"
         }
     }
 
