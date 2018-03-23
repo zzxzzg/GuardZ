@@ -16,7 +16,7 @@ import io.reactivex.Single;
 public class AppinfoRepository extends IAppinfoRepository {
     private IAppinfoRepository preferenceAppinfo;
 
-    public AppinfoRepository(){
+    public AppinfoRepository() {
         preferenceAppinfo = new PreferenceAppinfo();
     }
 
@@ -45,23 +45,4 @@ public class AppinfoRepository extends IAppinfoRepository {
         return preferenceAppinfo.setCurrentVersionLauncher(currentVersion);
     }
 
-    @Override
-    public Completable setDownloadId(long id) {
-        return preferenceAppinfo.setDownloadId(id);
-    }
-
-    @Override
-    public Single<Long> getDownloadId() {
-        return preferenceAppinfo.getDownloadId();
-    }
-
-    @Override
-    public Completable setIgnoreVersion(int id) {
-        return preferenceAppinfo.setIgnoreVersion(id);
-    }
-
-    @Override
-    public int getIgnoreVersion() {
-        return preferenceAppinfo.getIgnoreVersion();
-    }
 }

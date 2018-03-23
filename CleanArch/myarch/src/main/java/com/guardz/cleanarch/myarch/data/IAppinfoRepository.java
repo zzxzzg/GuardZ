@@ -23,12 +23,4 @@ public abstract class IAppinfoRepository extends IRepository {
     public abstract Maybe<Integer> getCurrentVersionMaybe();
 
     public abstract Completable setCurrentVersionLauncher(int currentVersion);
-
-    public abstract Completable setDownloadId(long id);
-
-    public abstract Single<Long> getDownloadId();
-
-    public abstract Completable setIgnoreVersion(int id);
-
-    public abstract int getIgnoreVersion();
 }

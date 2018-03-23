@@ -97,43 +97,4 @@ public class PreferenceAppinfo extends IAppinfoRepository {
             }
         });
     }
-
-    @Override
-    public Completable setDownloadId(final long id) {
-        return Completable.create(new CompletableOnSubscribe() {
-            @Override
-            public void subscribe(@NonNull CompletableEmitter e) throws Exception {
-                mPreferences.edit().putLong(SharedPreferencesUtils.Key.UPGRADE_DOWNLOAD_ID,id).commit();
-                e.onComplete();
-            }
-        });
-    }
-
-    @Override
-    public Single<Long> getDownloadId() {
-        Single<Long> single = Single.create(new SingleOnSubscribe<Long>() {
-            @Override
-            public void subscribe(@NonNull SingleEmitter<Long> e) throws Exception {
-                long version = mPreferences.getLong(SharedPreferencesUtils.Key.UPGRADE_DOWNLOAD_ID,-1);
-                e.onSuccess(version);
-            }
-        });
-        return single;
-    }
-
-    @Override
-    public Completable setIgnoreVersion(final int id) {
-        return Completable.create(new CompletableOnSubscribe() {
-            @Override
-            public void subscribe(@NonNull CompletableEmitter e) throws Exception {
-                mPreferences.edit().putInt(SharedPreferencesUtils.Key.IGNORE_VERSION,id).commit();
-                e.onComplete();
-            }
-        });
-    }
-
-    @Override
-    public int getIgnoreVersion() {
-          return  mPreferences.getInt(SharedPreferencesUtils.Key.IGNORE_VERSION,-1);
-    }
 }
