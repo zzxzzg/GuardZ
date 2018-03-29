@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.squareup.sqldelight'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.android.java_version
+        targetCompatibility rootProject.ext.android.java_version
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
+    })
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    testCompile rootProject.ext.dependencies["junit"]
+    compile rootProject.ext.dependencies["rxjava2"]
+    compile rootProject.ext.dependencies["rxandroid2"]
+    annotationProcessor rootProject.ext.dependencies["auto-value"]
+    provided rootProject.ext.dependencies["auto-value"]
+    annotationProcessor rootProject.ext.dependencies["auto-value-parcel"]
+    compile rootProject.ext.dependencies["sqlbrite"]
+    debugCompile rootProject.ext.dependencies["debug-db"]
+}
